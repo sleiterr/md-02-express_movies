@@ -8,7 +8,7 @@ const MovieList = ({ movies }) => {
   }
 
   return (
-    <div className={s.grid}>
+    <div className="grid grid-cols-3 gap-8">
       {movies.map((movie) => (
         <MovieCard key={movie._id} movie={movie} />
       ))}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchMovies, searchMovies } from "../../utils/api";
 
+import Hero from "../../components/Hero/Hero";
 import MoviList from "../../components/MovieList/MovieList";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Pagination from "../../components/Pagination/Pagination";
@@ -33,18 +34,33 @@ const Home = () => {
   }, [page, searchTerm]);
 
   return (
-    <div className="app">
-      <h1 className="title">Movie App</h1>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {loading ? (
-        <p className="loading">Loading movies...</p>
-      ) : (
-        <MoviList movies={movies} />
-      )}
-      {!searchTerm && (
-        <Pagination page={page} setPage={setPage} totalPages={totalPages} />
-      )}
-    </div>
+    <main>
+      <Hero />
+      <section className="">
+        <div className="py-[8rem] mx-auto md:max-w-7xl">
+          <h4 className="font-normal text-3xl text-primary">Movie App</h4>
+          <div className="py-8">
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          </div>
+          <div className="flex flex-col items-center">
+            {loading ? (
+              <p className="font-normal text-">Loading movies...</p>
+            ) : (
+              <div className="">
+                <MoviList movies={movies} />
+              </div>
+            )}
+            {!searchTerm && (
+              <Pagination
+                page={page}
+                setPage={setPage}
+                totalPages={totalPages}
+              />
+            )}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
 
