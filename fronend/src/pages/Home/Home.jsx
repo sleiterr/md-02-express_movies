@@ -38,13 +38,13 @@ const Home = () => {
       <Hero />
       <section className="">
         <div className="py-[8rem] mx-auto md:max-w-7xl">
-          <div className="relative after:absolute after:content-[''] after:bg-red-500 after:-bottom-3 after:w-[20rem] after:h-[0.04em]">
-            <h4 className="font-normal text-3xl text-primary">Movie App</h4>
-          </div>
-          <div className="py-8 w-full flex justify-end items-center">
+          <div className="flex items-center justify-between w-full">
+            <div className="relative after:absolute after:content-[''] after:bg-red-500 after:-bottom-6 after:w-[79rem] after:h-[0.04em]">
+              <h4 className="font-normal text-3xl text-primary">Movie App</h4>
+            </div>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           </div>
-          <div className="flex flex-col items-center mt-8">
+          <div className="flex flex-col items-center mt-[4.2rem]">
             {loading ? (
               <p className="font-normal text-">Loading movies...</p>
             ) : (
