@@ -1,5 +1,6 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
+import { Link } from "react-router-dom";
 import s from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
@@ -10,7 +11,9 @@ const MovieList = ({ movies }) => {
   return (
     <div className="grid grid-cols-3 gap-8">
       {movies.map((movie) => (
-        <MovieCard key={movie._id} movie={movie} />
+        <Link to={`/movie-detail/${movie._id}`}>
+          <MovieCard key={movie._id} movie={movie} />
+        </Link>
       ))}
     </div>
   );
