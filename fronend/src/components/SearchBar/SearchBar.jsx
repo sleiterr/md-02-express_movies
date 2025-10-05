@@ -8,8 +8,9 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
         <Description className="text-sm/6 text-white/50"></Description>
         <Input
           className={clsx(
-            "mt-3 block w-full rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white",
-            "focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25"
+            "block w-full rounded-lg border-none bg-white/5 px-4 py-2 text-sm/6 text-white",
+            "focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-0",
+            "transition-all duration-300"
           )}
           type="text"
           value={searchTerm}

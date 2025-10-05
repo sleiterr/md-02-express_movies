@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Pagination.module.css";
+import { PaginationBtn } from "./PaginationBtn";
 
 const Pagination = ({ page, setPage, totalPages }) => {
   const handlePrev = () => {
@@ -11,24 +11,30 @@ const Pagination = ({ page, setPage, totalPages }) => {
   };
 
   return (
-    <div className={s.container}>
-      <button onClick={handlePrev} disabled={page === 1} className={s.button}>
-        Prew
-      </button>
-
-      <span className={s.page}>
-        Page {page} of {totalPages}
-      </span>
-
-      <button
-        onClick={handleNext}
-        disabled={page === totalPages}
-        className={s.button}
+    <div className="flex flex-row items-center gap-6 mt-12">
+      <PaginationBtn handlePrev={handlePrev} page={page}>
+        <p className="font-normal text-base/6 text-primary">Prew</p>
+      </PaginationBtn>
+      
+      <PaginationCounter page={page} totalPages={totalPages} />
+      
+      <PaginationBtn
+        handleNext={handleNext}
+        page={page}
+        totalPages={totalPages}
       >
-        Next
-      </button>
+        <p className="font-normal text-base/6 text-primary">Next</p>
+      </PaginationBtn>
     </div>
   );
 };
 
 export default Pagination;
+
+const PaginationCounter = ({ page, totalPages }) => {
+  return (
+    <div className="flex items-center gap-2.5 font-normal text-base/6 text-primary">
+      <p>Page {page}</p> of <p>{totalPages}</p>
+    </div>
+  );
+};
